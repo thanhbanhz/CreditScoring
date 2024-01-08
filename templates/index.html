@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Đăng Ký</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .display-section {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('process') }}" method="post">
+        <label for="fullName">Họ và Tên:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="birthDate">Ngày tháng năm sinh:</label>
+        <input type="date" id="birthDate" name="birthDate" required>
+
+        <label for="gender">Giới tính:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+            <option value="other">Khác</option>
+        </select>
+
+        <label for="idCard">Căn cước công dân hoặc CMT:</label>
+        <input type="text" id="idCard" name="idCard" required>
+
+        <label for="phone">Số điện thoại liên hệ:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address">Nơi thường trú:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="currentAddress">Nơi ở hiện tại:</label>
+        <textarea id="currentAddress" name="currentAddress" required></textarea>
+
+        <label for="occupation">Nghề nghiệp:</label>
+        <input type="text" id="occupation" name="occupation" required>
+
+        <label for="workplace">Nơi công tác:</label>
+        <input type="text" id="workplace" name="workplace" required>
+
+        <label for="monthlyIncome">Thu nhập hàng tháng:</label>
+        <input type="number" id="monthlyIncome" name="monthlyIncome" required>
+
+        <!-- Thêm các trường thông tin khác tương tự -->
+
+        <input type="submit" id="submitBtn" value="Đăng Ký">
+    </form>
+
+    <div class="display-section">
+        <h2>Thông tin máy truy cập:</h2>
+        <p>User Agent: {{ user_agent }}</p>
+        <p>Địa chỉ IP mạng: {{ network_ip_address }}</p>
+        <p>Địa chỉ IP máy: {{ ip_address }}</p>
+    </div>
+</body>
+</html>
